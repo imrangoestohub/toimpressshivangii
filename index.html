@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Digital Gift for Zara</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="An interactive, custom 3D web experience built with love, elegance, and magic for Zara.">
+  <meta name="theme-color" content="#032219">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Custom Glowing Cursor -->
+  <div id="custom-cursor" aria-hidden="true"></div>
+  <div id="custom-cursor-glow" aria-hidden="true"></div>
+
+  <!-- Landing Screen Overlay -->
+  <div id="landing-screen">
+    <div class="landing-content">
+      <div class="rose-gold-glow"></div>
+      <h1 class="landing-title">For Zara</h1>
+      <p class="landing-subtitle">An interactive digital wonderland, crafted to celebrate your grace, elegance, and light.</p>
+      <button id="start-btn" class="glow-button">
+        <span>Enter your World</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Experience Container -->
+  <main id="main-container" class="hidden">
+    
+    <!-- Header / Navbar -->
+    <header class="navbar">
+      <div class="logo">ZARA.</div>
+      <div class="audio-control">
+        <button id="music-toggle" class="audio-btn" aria-label="Toggle Sound">
+          <span class="music-icon-container">
+            <span class="music-bar bar-1"></span>
+            <span class="music-bar bar-2"></span>
+            <span class="music-bar bar-3"></span>
+            <span class="music-bar bar-4"></span>
+          </span>
+          <span class="music-status">Play Soundscape</span>
+        </button>
+      </div>
+    </header>
+    <br><br>
+
+    <!-- WebGL Canvas Container for 3D Heart -->
+    <div id="canvas-container"></div>
+
+    <!-- Hidden audio element for Sitare MP3 song -->
+    
+
+    <!-- Interface Overlays -->
+    <div class="content-overlay">
+      
+      <!-- PAGE 2: Starry Heart & Qualities (Second Page) -->
+      <div id="page-2" class="page-view">
+        <div class="page-layout-container">
+          <!-- Left Panel: Content -->
+          <div class="left-panel">
+            <div class="glass-card instruction-card">
+              <h2 class="section-title">The Starry Heart</h2>
+              <p>Hover to rotate the celestial heart. Click directly on the stars to release a wave of light.</p>
+            </div>
+            
+            <!-- Compliment Cards Carousel/Deck -->
+            <div class="cards-deck">
+              <div class="tilt-card" data-compliment="grace">
+                <div class="card-inner">
+                  <div class="card-front">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">✦</div>
+                    <h3>Her Grace</h3>
+                    <span class="card-hint">Tap to reveal</span>
+                  </div>
+                  <div class="card-back">
+                    <p class="compliment-text">"Like an emerald gleaming in the quiet deep, your presence brings a natural, comforting grace that captivates anyone around you."</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tilt-card" data-compliment="radiance">
+                <div class="card-inner">
+                  <div class="card-front">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">✦</div>
+                    <h3>Her Radiance</h3>
+                    <span class="card-hint">Tap to reveal</span>
+                  </div>
+                  <div class="card-back">
+                    <p class="compliment-text">"Your smile has the warmth of soft pink mornings and the bright spark of rose gold, illuminating even the darkest days."</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tilt-card" data-compliment="mystery">
+                <div class="card-inner">
+                  <div class="card-front">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">✦</div>
+                    <h3>Her Vibe</h3>
+                    <span class="card-hint">Tap to reveal</span>
+                  </div>
+                  <div class="card-back">
+                    <p class="compliment-text">"A rare combination of intelligence, charm, and kindness—you carry a magnetic energy that makes the world infinitely more beautiful."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Page 2 Navigation -->
+            <div class="nav-control-group">
+             <button id="to-page-3" class="nav-button next-button">
+          <span>💌 Open Zara's Letter ➔</span>
+           </button>
+            </div>
+          </div>
+
+          <!-- Right Panel: Placeholders for Three.js centering on desktop -->
+          <div class="right-panel empty-space-panel"></div>
+        </div>
+      </div>
+
+      <!-- PAGE 3: Secret Envelope & Date Proposal (Third Page) -->
+      <div id="page-3" class="page-view hidden-page">
+        <div class="page-layout-container">
+          <!-- Left Panel: Placeholder for shifted Three.js on desktop -->
+          <div class="left-panel empty-space-panel"></div>
+
+          <!-- Right Panel: Active elements -->
+          <div class="right-panel">
+            <!-- 3D Interactive Envelope -->
+            <div class="envelope-wrapper">
+              <div class="envelope" id="envelope">
+                <div class="front flap"></div>
+                <div class="front pocket"></div>
+                <div class="letter" id="letter">
+                  <div class="letter-content"><br><br>
+                    <h2 class="letter-salutation">Dear Zara,</h2>
+                    <div class="letter-body"><br><br>
+                      <p>I have a confession to make. I'm usually much better at writing code than expressing what's in my heart, but I wanted to build this interactive digital space just for you.</p>
+                      <p>To be completely honest, I have spent a lot of time thinking about you lately. There is a quiet grace in how you carry yourself, a soft charm in your presence, and a warm, glowing light that simply makes my days infinitely brighter whenever you are around.</p>
+                      <p>I designed this entire celestial garden using your favorite colors—emerald green, rose gold, and soft pink—because they reflect your elegance and style. Every single line of code and breathing 3D star here was crafted to show you how much I admire you.</p>
+                      <p>I hope this small cosmic wonderland brings a true smile to your face today. Thank you for simply being the wonderful person you are.</p>
+                      <p class="letter-signature">With all my heart,</p>
+                      <p class="letter-sender">Imran</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="envelope-seal" id="envelope-seal">
+                  <span>Open</span>
+                </div>
+              </div>
+              <p class="envelope-hint">Click the seal to open the letter</p>
+            </div>
+
+            <!-- Playful Interactive Proposal Area -->
+            <div class="glass-card playful-widget" id="playful-widget">
+              <h3>A Quick Question for Zara</h3>
+              <p id="playful-question">Did this interactive experience bring a smile to your face?</p>
+              <div class="button-group">
+                <button id="proposal-yes" class="action-button yes-button">Yes, it did! 💖</button>
+                <button id="proposal-no" class="action-button no-button">No 😢</button>
+              </div>
+              <div id="proposal-response" class="hidden-message">
+                <p>Yay! Mission accomplished. Seeing you smile is the best reward. ✨</p>
+              </div>
+            </div>
+
+            <!-- Page 3 Navigation -->
+            <div class="nav-control-group back-nav">
+              <button id="to-page-2" class="nav-button back-button">
+                <span>⇠ Back to Stars</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </main>
+
+  <!-- External Libraries (CDNs) -->
+  <!-- Three.js Core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP for Smooth Tweening -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  
+  <!-- Custom Application Scripts -->
+  <script src="audio-synth.js"></script>
+  <script src="three-scene.js"></script>
+  <script src="app.js"></script>
+  <audio id="sitare-audio" loop>
+    <source src="sitare.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+</audio>
+</body>
+</html>
